@@ -4,7 +4,7 @@ import javax.persistence.Column;
 
 public class StudentScoreExcelEntity {
 
-    //班级
+    //班级//属性
     private String studentClass;
 
     //专业
@@ -19,28 +19,36 @@ public class StudentScoreExcelEntity {
     //学号
     private String num2;
 
+    //名字
     private String name;
 
+    //性别
     private String sex;
 
+    //平时分
     private Double peacetimeScore;
 
+    //考试成绩
     private Double examScore;
 
+    //最终成绩
     private Double finalScore;
 
+    //学期
     private Integer term;
 
+    //考试科目
     private String examType;
 
+    //任课老师
     private String teacher;
 
     //所属分院
     private String branch;
-
+     //构造器
     public StudentScoreExcelEntity() {
     }
-
+    //构造器的重写
     public StudentScoreExcelEntity(String studentClass, String profession, String course, String num1, String num2, String name, String sex, Double peacetimeScore, Double examScore, Double finalScore, Integer term, String examType, String teacher, String branch) {
         this.studentClass = studentClass;
         this.profession = profession;
@@ -62,9 +70,7 @@ public class StudentScoreExcelEntity {
         return studentClass;
     }
 
-    public void setStudentClass(String studentClass) {
-        this.studentClass = studentClass;
-    }
+    public void setStudentClass(String studentClass) { this.studentClass = studentClass; }
 
     public String getProfession() {
         return profession;

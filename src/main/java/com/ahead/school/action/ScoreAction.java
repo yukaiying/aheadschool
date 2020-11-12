@@ -26,13 +26,17 @@ public class ScoreAction {
         return "scorelist";
     }
 
+    @GetMapping("/a")
+    public String getList(){
+        return "a";
+    }
     @PostMapping("/fileUpload")
-    @ResponseBody
+    //@ResponseBody
     public String test(@RequestParam("scoreExcel") MultipartFile file){
         if(file.isEmpty()){
             return "上传的是空文件，请重新上传";
         }
         scoreServlet.saveScore(FileExcelUtil.scoreManage(file));
-        return "scorelist";
+        return "a";
     }
 }
