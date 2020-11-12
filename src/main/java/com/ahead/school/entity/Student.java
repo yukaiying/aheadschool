@@ -3,9 +3,9 @@ package com.ahead.school.entity;
 import javax.persistence.*;
 import java.util.Date;
 
-@Table(name = "tab_student")
-public class StudentTest {
-
+@Table(name = "t_student")
+@Entity
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
