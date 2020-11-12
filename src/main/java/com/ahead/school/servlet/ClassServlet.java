@@ -17,13 +17,16 @@ public class ClassServlet {
         List<ClassEntity> classEntity = classDao.findAll();
         return classEntity;
     }
+
     public ClassEntity insertOrUpdate(ClassEntity classEntity){
         ClassEntity insertClassEntity = classDao.save(classEntity);
         return insertClassEntity;
     }
+
     public void delById(Integer id){
         classDao.deleteById(id);
     }
+
     public ClassEntity getClassEntityById(Integer id){
         ClassEntity classEntity = classDao.findById(id).orElseGet(ClassEntity::new);
         return classEntity;
