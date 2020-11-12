@@ -4,14 +4,17 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "tab_gradle")
-public class Gradle {
+@Table(name = "tab_class")
+public class ClassEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "grade_name")
-    private String gradeName;
+    @Column(name = "class_name")
+    private String className;
+
+    @Column(name = "grade_id")
+    private Integer gradeId;
 
     @Column(name = "create_time")
     private Date createTime;
@@ -27,12 +30,20 @@ public class Gradle {
         this.id = id;
     }
 
-    public String getGradeName() {
-        return gradeName;
+    public Integer getGradeId() {
+        return gradeId;
     }
 
-    public void setGradeName(String gradeName) {
-        this.gradeName = gradeName;
+    public void setGradeId(Integer gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     public Date getCreateTime() {
