@@ -5,7 +5,13 @@ import java.util.Date;
 
 @Table(name = "t_student")
 @Entity
+<<<<<<< HEAD:src/main/java/com/ahead/school/entity/Student.java
 public class Student {
+=======
+@Table(name = "tab_student")
+public class StudentTest {
+
+>>>>>>> guobin2:src/main/java/com/ahead/school/entity/StudentTest.java
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

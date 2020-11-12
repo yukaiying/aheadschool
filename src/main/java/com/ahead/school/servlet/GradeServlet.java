@@ -13,8 +13,6 @@ public class GradeServlet {
     @Autowired
     private GradeDao gradeDao;
 
-    public void saveGrade(List<Grade> list) {}
-
     public List<Grade> gradeList() {
         List<Grade> grade = gradeDao.findAll();
         return grade;

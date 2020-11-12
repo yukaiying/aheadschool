@@ -13,9 +13,7 @@ public class ClassServlet {
     @Autowired
     private ClassDao classDao;
 
-    public void saveClass(List<ClassEntity> list) {}
-
-    public List<ClassEntity> classList() {
+    public List<ClassEntity> classEntityList() {
         List<ClassEntity> classEntity = classDao.findAll();
         return classEntity;
     }

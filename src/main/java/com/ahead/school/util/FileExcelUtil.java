@@ -1,8 +1,6 @@
 package com.ahead.school.util;
 
-import com.ahead.school.entity.Student;
 import com.ahead.school.entity.StudentScoreExcelEntity;
-import org.apache.poi.ss.formula.functions.T;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;

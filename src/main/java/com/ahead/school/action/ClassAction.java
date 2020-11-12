@@ -8,15 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/class")
+@RequestMapping("/classEntity")
 public class ClassAction {
     @Autowired
     private ClassServlet classServlet;
 
     @GetMapping("list")
-    public String ClassList(Model model) {
-        model.addAttribute("list",classServlet.classList());
-        return "Classlist";
+    public String classEntityList(Model model) {
+        model.addAttribute("classEntityList",classServlet.classEntityList());
+        return "classEntitylist";
     }
 
     @PostMapping("/save")
