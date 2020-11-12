@@ -1,42 +1,42 @@
 package com.ahead.school.action;
 
 
-import com.ahead.school.entity.id;
-import com.ahead.school.servlet.idServlet;
+import com.ahead.school.entity.Student;
+import com.ahead.school.servlet.StudentServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/id")
+@RequestMapping("/student")
 public class StudentAction {
 
     @Autowired
-    private idServlet IdServlet;
+    private StudentServlet studentServlet;
     @GetMapping("/list")
-    public String IdList(Model model){
-        model.addAttribute("IdList", IdServlet.IdList());
+    public String StudentList(Model model){
+        model.addAttribute("IdList", studentServlet.studentList());
         return "back/Idlist";
     }
 
     @PostMapping("/byId/{id}")
     @ResponseBody
-    public id getidById(@PathVariable("id") Long id){
-        return IdServlet.getidById(id);
+    public Student getStudentById(@PathVariable("id") Long id){
+        return studentServlet.getStudentById(id);
     }
 
 
     @PostMapping("/save")
-    public String saveid(id Id){
-        IdServlet.insertOrUpdate(Id);
+    public String saveid(Student student){
+        studentServlet.insertOrUpdate(student);
         return "redirect:/Id/list";
     }
 
 
     @GetMapping("/del/{id}")
     public String delid(@PathVariable("id") Long id){
-        IdServlet.delById(id);
+        studentServlet.delByStudentId(id);
         return "redirect:/Id/list";
     }
 }

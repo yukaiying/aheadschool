@@ -14,17 +14,17 @@ public class StudentServlet {
 
     @Autowired
     private StudentDao studentDao;
-    public id insertOrUpdate(StudentDao studentDao){
-        return studentDao.save(Id);
+    public Student insertOrUpdate(Student student){
+        return studentDao.save(student);
     }
-    public void delById(Long id){ studentDao.deleteById(id); }
+    public void delByStudentId(Long id){ studentDao.deleteById(id); }
 
-    public List<StudentDao> studentDaoList(){
+    public List<Student> studentList(){
         return studentDao.findAll();
     }
 
-    public id getidById(Long StudentDaoy){
-        return studentDao.findById(id).orElseGet(() -> new id());
+    public Student getStudentById(Long StudentDaoy){
+        return studentDao.findById(StudentDaoy).orElseGet(() -> new Student());
     }
 
 }
