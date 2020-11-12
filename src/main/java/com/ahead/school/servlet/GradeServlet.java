@@ -1,7 +1,7 @@
 package com.ahead.school.servlet;
 
-import com.ahead.school.dao.GradleDao;
-import com.ahead.school.entity.Gradle;
+import com.ahead.school.dao.GradeDao;
+import com.ahead.school.entity.Grade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +11,12 @@ import java.util.List;
 public class GradeServlet {
 
     @Autowired
-    private GradleDao gradeDao;
+    private GradeDao gradeDao;
 
-    public void saveGrade(List<Gradle> list) {}
+    public void saveGrade(List<Grade> list) {}
 
-    public List<Gradle> gradeList() {
-        List<Gradle> grade = gradeDao.findAll();
+    public List<Grade> gradeList() {
+        List<Grade> grade = gradeDao.findAll();
         return grade;
     }
 }

@@ -41,8 +41,8 @@ CREATE TABLE `tab_student`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1443 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
-DROP TABLE IF EXISTS `tab_gradle`;
-CREATE TABLE `tab_gradle`  (
+DROP TABLE IF EXISTS `tab_grade`;
+CREATE TABLE `tab_grade`  (
    `id` int(0) NOT NULL AUTO_INCREMENT,
    `grade` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
    `specialty` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '专业',
@@ -68,3 +68,9 @@ CREATE TABLE `tab_teacher`  (
   PRIMARY KEY (`teacher_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
+
+----11/12--郭斌
+
+DROP TABLE IF EXISTS `tab_class`;
+CREATE TABLE `tab_class`
+------------------
