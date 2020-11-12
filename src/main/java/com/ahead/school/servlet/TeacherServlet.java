@@ -5,7 +5,6 @@ package com.ahead.school.servlet;/*
  */
 
 import com.ahead.school.dao.TeacherDao;
-import com.ahead.school.entity.Classes;
 import com.ahead.school.entity.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

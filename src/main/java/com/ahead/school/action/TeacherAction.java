@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/Teacher")
+@RequestMapping("/teacher")
 public class TeacherAction {
     @Autowired
     private TeacherServlet teacherServlet;
@@ -29,9 +29,10 @@ public class TeacherAction {
     }
 
     @PostMapping("/save")
+    @ResponseBody
     public String saveTeachers(Teacher teacher) {
         teacherServlet.insertOrUpdate(teacher);
-        return "redirect:/./save";
+        return "成功";
     }
 
     @GetMapping("/del/{id}")

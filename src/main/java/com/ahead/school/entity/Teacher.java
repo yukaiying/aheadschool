@@ -4,6 +4,8 @@ package com.ahead.school.entity;/*
  *创建时间:2020/11/12 14:10
  */
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,17 +15,19 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
     @Column(name = "sex")
     private Long sex;
-    @Column(name = "Job_Type")
+    @Column(name = "job_type")
     private String jobType;
     @Column(name = "create_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
     @Column(name = "create_user")
     private int createUser;
     @Column(name = "update_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
     @Column(name = "update_user")
     private int updateUser;

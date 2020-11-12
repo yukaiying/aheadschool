@@ -5,11 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "tab_gradle")
-<<<<<<< HEAD:src/main/java/com/ahead/school/entity/Gradle.java
 public class Gradle {
-=======
-public class Grade {
->>>>>>> 1ff57ca (commit):src/main/java/com/ahead/school/entity/Grade.java
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
