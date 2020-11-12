@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/id")
-public class idAction {
+public class StudentAction {
 
     @Autowired
     private idServlet IdServlet;
