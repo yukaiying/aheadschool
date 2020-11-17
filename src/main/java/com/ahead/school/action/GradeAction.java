@@ -1,11 +1,11 @@
 package com.ahead.school.action;
 
+import com.ahead.school.entity.Grade;
 import com.ahead.school.servlet.GradeServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/grade")
@@ -17,5 +17,22 @@ public class GradeAction {
     public String GradeList(Model model) {
         model.addAttribute("list",gradeServlet.gradeList());
         return "Gradelist";
+    }
+    @PostMapping("/save")
+    public String saveGrade(Grade grade) {
+        gradeServlet.insertOrUpdate(grade);
+        return "redirect:/grade/list";
+    }
+
+    @PostMapping("/byId/{id}")
+    @ResponseBody
+    public Grade getGradeById(@PathVariable("id") Integer id) {
+        return gradeServlet.getGradeById(id);
+    }
+
+    @GetMapping("/del/{id}")
+    public String delGrade(@PathVariable("id") Integer id) {
+        gradeServlet.delById(id);
+        return "redirect:/grade/list";
     }
 }

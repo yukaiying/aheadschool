@@ -13,19 +13,20 @@ public class ClassServlet {
     @Autowired
     private ClassDao classDao;
 
-    public void saveClass(List<ClassEntity> list) {}
-
-    public List<ClassEntity> classList() {
+    public List<ClassEntity> classEntityList() {
         List<ClassEntity> classEntity = classDao.findAll();
         return classEntity;
     }
+
     public ClassEntity insertOrUpdate(ClassEntity classEntity){
         ClassEntity insertClassEntity = classDao.save(classEntity);
         return insertClassEntity;
     }
+
     public void delById(Integer id){
         classDao.deleteById(id);
     }
+
     public ClassEntity getClassEntityById(Integer id){
         ClassEntity classEntity = classDao.findById(id).orElseGet(ClassEntity::new);
         return classEntity;
