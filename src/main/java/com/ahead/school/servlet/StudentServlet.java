@@ -24,7 +24,7 @@ public class StudentServlet {
     }
 
     public Student getStudentById(Long StudentDaoy){
-        return studentDao.findById(StudentDaoy).orElseGet(() -> new Student());
+        return studentDao.findById(StudentDaoy).orElseGet(Student::new);
     }
 
 }
