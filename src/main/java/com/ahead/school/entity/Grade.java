@@ -2,6 +2,7 @@ package com.ahead.school.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "tab_grade")
@@ -13,11 +14,17 @@ public class Grade {
     @Column(name = "grade_name")
     private String gradeName;
 
+//    @OneToMany(targetEntity = ClassEntity.class,mappedBy = "gradeId")
+//    private List<ClassEntity> classEntities;
+
     @Column(name = "create_time")
     private Date createTime;
 
     @Column(name = "create_user")
     private String createUser;
+
+    public Grade() {
+    }
 
     public Integer getId() {
         return id;

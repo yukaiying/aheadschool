@@ -2,7 +2,6 @@ package com.ahead.school.action;
 
 
 import com.ahead.school.entity.Student;
-import com.ahead.school.servlet.StudentServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +21,7 @@ public class StudentAction {
 
     @PostMapping("/byId/{id}")
     @ResponseBody
-    public Student getStudentById(@PathVariable("id") Long id){
+    public Student getStudentById(@PathVariable("id") Integer id){
         return studentServlet.getStudentById(id);
     }
 
@@ -35,7 +34,7 @@ public class StudentAction {
 
 
     @GetMapping("/del/{id}")
-    public String delid(@PathVariable("id") Long id){
+    public String delid(@PathVariable("id") Integer id){
         studentServlet.delByStudentId(id);
         return "redirect:/Id/list";
     }
