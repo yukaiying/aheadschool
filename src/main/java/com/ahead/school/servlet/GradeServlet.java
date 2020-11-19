@@ -17,4 +17,18 @@ public class GradeServlet {
         List<Grade> grade = gradeDao.findAll();
         return grade;
     }
+
+    public Grade insertOrUpdate(Grade grade){
+        Grade insertGrade = gradeDao.save(grade);
+        return insertGrade;
+    }
+
+    public void delById(Integer id){
+        gradeDao.deleteById(id);
+    }
+
+    public Grade getGradeById(Integer id){
+        Grade grade = gradeDao.findById(id).orElseGet(Grade::new);
+        return grade;
+    }
 }
