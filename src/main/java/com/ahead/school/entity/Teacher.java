@@ -18,7 +18,7 @@ public class Teacher {
     @Column(name = "name")
     private String name;
     @Column(name = "sex")
-    private Long sex;
+    private String sex;
     @Column(name = "job_type")
     private String jobType;
     @Column(name = "create_time")
@@ -31,6 +31,19 @@ public class Teacher {
     private Date updateTime;
     @Column(name = "update_user")
     private int updateUser;
+
+    public Teacher(Long id ,String name,String sex,String jobType,Date createTime,int createUser,Date updateTime,int updateUser){
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+        this.jobType = jobType;
+        this.createTime = createTime;
+        this.createUser = createUser;
+        this.updateTime = updateTime;
+        this.updateUser = updateUser;
+    }
+    public Teacher() {
+    }
 
     public Long getId() {
         return id;
@@ -48,11 +61,11 @@ public class Teacher {
         this.name = name;
     }
 
-    public Long getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Long sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 

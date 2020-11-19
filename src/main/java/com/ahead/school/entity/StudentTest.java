@@ -3,7 +3,8 @@ package com.ahead.school.entity;
 import javax.persistence.*;
 import java.util.Date;
 
-@Table(name = "tab_student")
+@Table(name = "t_student")
+@Entity
 public class StudentTest {
 
     @Id

@@ -6,10 +6,13 @@ package com.ahead.school.action;/*
 
 
 import com.ahead.school.entity.Teacher;
+import com.ahead.school.servlet.TeacherQueryServiceImpl;
 import com.ahead.school.servlet.TeacherServlet;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -17,11 +20,15 @@ import org.springframework.web.bind.annotation.*;
 public class TeacherAction {
     @Autowired
     private TeacherServlet teacherServlet;
+    private TeacherQueryServiceImpl teacherQueryServiceIml;
+
+
     @GetMapping("/list")
     public String Teacherslist(Model model) {
-        model.addAttribute("Teacherslist",teacherServlet.teachersList());
+        model.addAttribute("Teacherslist", teacherServlet.teachersList());
         return "Teacherslist";
     }
+
     @PostMapping("/byId/{id}")
     @ResponseBody
     public Teacher getTeachersById(@PathVariable("id") Long id) {
@@ -29,7 +36,6 @@ public class TeacherAction {
     }
 
     @PostMapping("/save")
-    @ResponseBody
     public String saveTeachers(Teacher teacher) {
         teacherServlet.insertOrUpdate(teacher);
         return "成功";
@@ -40,4 +46,13 @@ public class TeacherAction {
         teacherServlet.delById(id);
         return "redirect:/./del";
     }
+    @GetMapping(value = "findTeacherQuery/{page}/{size}")
+    public String findBookQuery(ModelMap modelMap, @PathVariable("page") Integer page,
+                                @PathVariable("size") Integer size, Teacher teacher){
+
+        Page<Teacher> data = teacherQueryServiceIml.findTeacherCriteria(page, size,teacher);
+        modelMap.addAttribute("datas", data);
+        return "index2";
+    }
+
 }
