@@ -2,29 +2,28 @@ package com.ahead.school.entity;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "tab_grade")
-public class Grade {
+@Table(name = "tab_student_course")
+public class StudentCourse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "grade_name")
-    private String gradeName;
+    @Column(name = "student_id")
+    private Integer studentId;
 
-//    @OneToMany(targetEntity = ClassEntity.class,mappedBy = "gradeId")
-//    private List<ClassEntity> classEntities;
+    @Column(name = "course_id")
+    private Integer courseId;
+
+    @Column(name = "status")
+    private String status;
 
     @Column(name = "create_time")
     private Date createTime;
 
     @Column(name = "create_user")
     private String createUser;
-
-    public Grade() {
-    }
 
     public Integer getId() {
         return id;
@@ -34,12 +33,28 @@ public class Grade {
         this.id = id;
     }
 
-    public String getGradeName() {
-        return gradeName;
+    public Integer getStudentId() {
+        return studentId;
     }
 
-    public void setGradeName(String gradeName) {
-        this.gradeName = gradeName;
+    public void setStudentId(Integer studentId) {
+        this.studentId = studentId;
+    }
+
+    public Integer getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(Integer courseId) {
+        this.courseId = courseId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Date getCreateTime() {

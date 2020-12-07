@@ -94,22 +94,21 @@ CREATE TABLE `t_student`  (
 
 SET FOREIGN_KEY_CHECKS = 1;
 --------------------------
--- Table structure for tab_course
--- ----------------------------
-DROP TABLE IF EXISTS `tab_course`;
-CREATE TABLE `tab_course`  (
-  `id` int(20) NOT NULL COMMENT '序号',
-  `course_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '课程名称',
-  `type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '课程类型（选修；必修）',
-  `term` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '学期',
-  `grade_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '年级',
-  `exam_type` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '考试类型（考试；考察）',
-  `create_time` datetime(6) NULL DEFAULT NULL COMMENT '创建时间',
-  `create_user` int(20) NULL DEFAULT NULL COMMENT '创建者',
-  `update_time` datetime(6) NULL DEFAULT NULL COMMENT '修改时间',
-  `update_user` int(20) NULL DEFAULT NULL COMMENT '修改者',
+
+--------11.19----郭斌------
+
+DROP TABLE IF EXISTS `tab_student_course`;
+CREATE TABLE `tab_student_course`  (
+  `id` int(11) NOT NULL,
+  `student_id` int(11) NULL DEFAULT NULL COMMENT '学生 ID',
+  `course_id` int(11) NULL DEFAULT NULL COMMENT '课程ID',
+  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '考试后的状态',
+  `create_time` datetime(0) NULL DEFAULT NULL,
+  `create_user` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
-------------------------------------
+
+------------------------------
+

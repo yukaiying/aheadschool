@@ -34,7 +34,7 @@
     <div class="layout-inner">
 
         <!-- Layout sidenav -->
-        <iframe src="/left" scrolling="no"></iframe>
+<!--        <iframe src="/left" scrolling="no"></iframe>-->
         <!-- / Layout sidenav -->
 
         <!-- Layout container -->
@@ -93,13 +93,15 @@
                             <table class="datatables-demo table table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th>班级名字</th>
+                                    <th>班级名称</th>
+                                    <th>年级名称</th>
+                                    <th>操作</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr class="odd gradeA" th:each="classEntity:${classEntityList}">
                                     <td th:text="${classEntity.className}"></td>
-
+                                    <td th:text="${classEntity.gradeId}"></td>
                                     <td>
                                         <button class="btn btn-warning btn-update" th:value="${classEntity.id}"
                                                 data-toggle="modal" data-target="#modals-fill-in">修改
@@ -134,12 +136,18 @@
             <div class="modal-body text-white">
                 <p class="text-large font-weight-light mb-3">修改</p>
                 <hr/>
-                <form name="saveNews" method="post" action="/classEntity/save">
+                <form name="saveClassEntity" method="post" action="/classEntity/save">
                     <input type="hidden" name="id">
+                    <div class="form-group row">
+                        <label class="col-form-label col-sm-3 text-sm-right">年级名称</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" placeholder="年级名称" name="gradeName" required>
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-form-label col-sm-3 text-sm-right">班级名称</label>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" placeholder="班级名字" name="title" required>
+                            <input type="text" class="form-control" placeholder="班级名称" name="className" required>
                         </div>
                     </div>
                     <hr/>
@@ -164,14 +172,14 @@
 <script src="/back/js/sidenav.js"></script>
 <script src="/back/js/perfect-scrollbar.js"></script>
 <script src="/back/js/bootbox.js"></script>
-<script src="/back/js/businessmany.js"></script>
+<script src="/back/js/business.js"></script>
 <script src="/back/js/dropzone.js"></script>
 <script src="/back/js/flow.js"></script>
 <script src="/back/js/forms_file-upload.js"></script>
 <!-- Libs -->
 <!-- Demo -->
 <script src="/back/js/demo.js"></script>
-<script src="/back/js/news.js"></script>
+<script src="/back/js/classEntity.js"></script>
 </body>
 
 </html>

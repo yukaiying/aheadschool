@@ -14,15 +14,16 @@ public class StudentAction {
 
     @Autowired
     private StudentServlet studentServlet;
+
     @GetMapping("/list")
-    public String StudentList(Model model){
+    public String studentList(Model model){
         model.addAttribute("IdList", studentServlet.studentList());
         return "back/Idlist";
     }
 
     @PostMapping("/byId/{id}")
     @ResponseBody
-    public Student getStudentById(@PathVariable("id") Long id){
+    public Student getStudentById(@PathVariable("id") Integer id){
         return studentServlet.getStudentById(id);
     }
 
@@ -35,7 +36,7 @@ public class StudentAction {
 
 
     @GetMapping("/del/{id}")
-    public String delid(@PathVariable("id") Long id){
+    public String delid(@PathVariable("id") Integer id){
         studentServlet.delByStudentId(id);
         return "redirect:/Id/list";
     }
