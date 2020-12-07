@@ -19,6 +19,8 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TeacherQueryServiceImpl implements TeacherQueryService {
@@ -28,16 +30,20 @@ public class TeacherQueryServiceImpl implements TeacherQueryService {
     @Override
     public Page<Teacher> findTeacherCriteria(Integer page, Integer size, final Teacher teacher) {
         Pageable pageable =  PageRequest.of(page, size, Sort.Direction.ASC, "id");
-        Page<Teacher> TeacherPage = teacherDao.findAll(new Specification<Teacher>() {
 
-            @Override
-            public Predicate toPredicate(Root<Teacher> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
-                Predicate p1 = criteriaBuilder.equal(root.get("name").as(String.class), teacher.getName());
-                Predicate p2 = criteriaBuilder.equal(root.get("jobType").as(String.class), teacher.getJobType());
-                Predicate p3 = criteriaBuilder.equal(root.get("id").as(String.class), teacher.getId());
-                query.where(criteriaBuilder.and(p1, p2, p3));
-                return query.getRestriction();
+        Page<Teacher> TeacherPage = teacherDao.findAll((Specification<Teacher>) (root, query, criteriaBuilder) -> {
+            List<Predicate> list = new ArrayList<>();
+            if(null!=teacher.getName()&&!"".equals(teacher.getName())){
+                list.add(criteriaBuilder.equal(root.get("name").as(String.class), teacher.getName()));
             }
+            if(null!=teacher.getId()&&!"".equals(teacher.getId())){
+                list.add(criteriaBuilder.equal(root.get("isbn").as(String.class), teacher.getId()));
+            }
+            if(null!=teacher.getSex()&&!"".equals(teacher.getSex())){
+                list.add(criteriaBuilder.equal(root.get("author").as(String.class), teacher.getSex()));
+            }
+            Predicate[] p = new Predicate[list.size()];
+            return criteriaBuilder.and(list.toArray(p));
         },pageable);
         return TeacherPage;
     }

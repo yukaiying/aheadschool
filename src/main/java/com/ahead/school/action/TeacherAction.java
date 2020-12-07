@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class TeacherAction {
     @Autowired
     private TeacherServlet teacherServlet;
+    @Autowired
     private TeacherQueryServiceImpl teacherQueryServiceIml;
 
 
@@ -46,13 +47,14 @@ public class TeacherAction {
         teacherServlet.delById(id);
         return "redirect:/./del";
     }
-    @GetMapping(value = "findTeacherQuery/{page}/{size}")
-    public String findBookQuery(ModelMap modelMap, @PathVariable("page") Integer page,
+    @PostMapping("/findTeacherQuery/{page}/{size}")
+    @ResponseBody
+    public Page<Teacher> findBookQuery( @PathVariable("page") Integer page,
                                 @PathVariable("size") Integer size, Teacher teacher){
 
         Page<Teacher> data = teacherQueryServiceIml.findTeacherCriteria(page, size,teacher);
-        modelMap.addAttribute("datas", data);
-        return "index2";
+//        modelMap.addAttribute("data", data);
+        return data;
     }
 
 }

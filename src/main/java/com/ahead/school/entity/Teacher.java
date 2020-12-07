@@ -14,6 +14,7 @@ import java.util.Date;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "teacher_id")
     private Long id;
     @Column(name = "name")
     private String name;
