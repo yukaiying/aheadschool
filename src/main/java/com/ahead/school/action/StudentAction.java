@@ -2,6 +2,7 @@ package com.ahead.school.action;
 
 
 import com.ahead.school.entity.Student;
+import com.ahead.school.servlet.StudentServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +14,9 @@ public class StudentAction {
 
     @Autowired
     private StudentServlet studentServlet;
+
     @GetMapping("/list")
-    public String StudentList(Model model){
+    public String studentList(Model model){
         model.addAttribute("IdList", studentServlet.studentList());
         return "back/Idlist";
     }
